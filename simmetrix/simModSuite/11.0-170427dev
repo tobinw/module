@@ -3,7 +3,7 @@
 ## gcc modulefile
 ##
 conflict     simmetrix/simModSuite
-set          release             11.0-170421dev
+set          release             11.0-170427dev
 set          devroot             $::env(DEVROOT)
 set          platform            x64_rhel6_gcc44
 set          root                $devroot/install/simmetrix

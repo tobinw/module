@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## gcc modulefile
+##
+conflict     simmetrix/PartitionWrapper
+prereq       openmpi/2.1.1
+set          mpi                 openmpi211
+set          devroot             $::env(DEVROOT)
+set          root                $devroot/simmetrix/PartitionWrapper/
+prepend-path CMAKE_PREFIX_PATH   $root/lib
+
+module-whatis   "Sets up environment for using a simmetrix PartitionWrapper"
+proc ModulesHelp { } {
+        global version
+        puts stderr "\tAdds directories for using a simmetrix PartitionWrapper to your environment"
+        puts stderr "\n\tMPI Version $mpi\n"
+}

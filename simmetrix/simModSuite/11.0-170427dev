@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## gcc modulefile
+##
+conflict     simmetrix/simModSuite
+set          release             11.0-170421dev
+set          devroot             $::env(DEVROOT)
+set          platform            x64_rhel6_gcc44
+set          root                $devroot/install/simmetrix
+prepend-path LD_LIBRARY_PATH     $root/$release/lib/$platform/acisKrnl/
+prepend-path LD_LIBRARY_PATH     $root/$release/lib/$platform/psKrnl/
+prepend-path CMAKE_PREFIX_PATH   $root/$release/
+prepend-path CMAKE_PREFIX_PATH   $root/$release/lib/$platform
+prepend-path CMAKE_PREFIX_PATH   $root/$release/lib/$platform/acisKrnl/
+prepend-path CMAKE_PREFIX_PATH   $root/$release/lib/$platform/psKrnl/
+setenv       SIM_INSTALL_DIR     $root/$release/
+setenv       SIM_INCLUDE_DIR     $root/$release/include
+setenv       SIM_LIB_DIR         $root/$release/lib/$platform/
+setenv       SIM_LICENSE_FILE    $root/license/license.txt
+setenv       P_SCHEMA            $root/$release/lib/$platform/psKrnl/schema
+
+module-whatis   "Sets up environment for using simModSuite $release"
+proc ModulesHelp { } {
+        global version
+        puts stderr "\tAdds directories for using simModSuite to your environment"
+        puts stderr "\n\tRelease $release\n"
+}

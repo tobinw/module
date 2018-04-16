@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## cmake modulefile
+##
+conflict        cmake
+set             version                 3.11.0
+set             devroot                 $::env(DEVROOT)
+set             root                    $devroot/install/cmake/$version
+prepend-path    PATH                    $root/bin
+prepend-path    MANPATH                 $root/share/man
+prepend-path    LD_LIBRARY_PATH         $root/lib
+
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\tAdds directories for using cmake $version to your path"
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "adds required directories to PATH, MANPATH, and LD_LIBRARY_PATH for using cmake $version"

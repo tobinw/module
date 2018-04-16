@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## git modulefile
+##
+
+set             release                 2.9.5
+set             devroot                 $::env(DEVROOT)
+set             path                    $devroot/install/git
+
+prepend-path    PATH                    $path/bin
+prepend-path    MANPATH                 $path/share/man/
+
+module-whatis "Sets up environment for using Git ${release}"
+
+proc ModulesHelp { } {
+  global release
+  puts stderr "\tAdds directories for using Git ${release} to your path"
+  puts stderr "\tDocumentation is available via 'man' and http://git-scm.com/documentation ."
+}
